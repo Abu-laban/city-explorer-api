@@ -25,7 +25,6 @@ server.get('/weather', (request, response) => {
 
     });
 
-
     const newWeatherSummaries = weatherSummaries.data.map(day => {
         return new Weather(day.weather.description, day.valid_date)
     })
