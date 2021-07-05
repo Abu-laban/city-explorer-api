@@ -7,7 +7,7 @@
 
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 
-A back-end server that have dat various API's to serve city information based off search queries
+A back-end server to serve city weather information based off search queries
 
 ## Getting Started
 
@@ -15,12 +15,9 @@ A back-end server that have dat various API's to serve city information based of
 
 ## Architecture
 
-React,
-Bootstrap,
-axios,
-API LocationIQ,
-netlify,
-Thunder Client.
+express,
+dotenv,
+cors,
 
 ## Change Log
 
@@ -28,19 +25,12 @@ Thunder Client.
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
-**Name of feature: Lab 06 Locations**
+**Name of feature: Lab 07 Weather**
 
 - Estimate of time needed to complete: 60 minutes
-- Start time: 2:30 pm
-- Finish time: 4:31 pm
-- Actual time needed to complete: 121 minutes
-
-**Name of feature: Lab 06 Map**
-
-- Estimate of time needed to complete: 30 minutes
-- Start time: 5:00 pm
-- Finish time: 5:45 pm
-- Actual time needed to complete: 45 minutes
+- Start time: 5:30 pm
+- Finish time: 6:31 pm
+- Actual time needed to complete: 61 minutes
 
 ## Credit and Collaborations
 
