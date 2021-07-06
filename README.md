@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Tariq Abu-Laban
-**Version**: 1.0.0
+**Version**: 1.0.1
 
 ## Overview
 
@@ -31,6 +31,13 @@ cors,
 - Start time: 5:30 pm
 - Finish time: 6:31 pm
 - Actual time needed to complete: 61 minutes
+
+**Name of feature: Lab 08 WeatherAPI**
+
+- Estimate of time needed to complete: 60 minutes
+- Start time: 2:15 pm
+- Finish time: 3:45 pm
+- Actual time needed to complete: 90 minutes
 
 ## Credit and Collaborations
 
