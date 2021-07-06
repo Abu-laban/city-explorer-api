@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Tariq Abu-Laban
-**Version**: 1.0.1
+**Version**: 1.0.2
 
 ## Overview
 
@@ -18,6 +18,7 @@ A back-end server to serve city weather information based off search queries
 express,
 dotenv,
 cors,
+axios,
 
 ## Change Log
 
@@ -38,6 +39,13 @@ cors,
 - Start time: 2:15 pm
 - Finish time: 3:45 pm
 - Actual time needed to complete: 90 minutes
+
+**Name of feature: Lab 08 MoviesAPI**
+
+- Estimate of time needed to complete: 60 minutes
+- Start time: 4:00 pm
+- Finish time: 4:45 pm
+- Actual time needed to complete: 45 minutes
 
 ## Credit and Collaborations
 
