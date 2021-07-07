@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Tariq Abu-Laban
-**Version**: 1.0.2
+**Version**: 1.0.3
 
 ## Overview
 
@@ -46,6 +46,13 @@ axios,
 - Start time: 4:00 pm
 - Finish time: 4:45 pm
 - Actual time needed to complete: 45 minutes
+
+**Name of feature: Lab 09 Modularize**
+
+- Estimate of time needed to complete: 30 minutes
+- Start time: 12:55 pm
+- Finish time: 1:05 pm
+- Actual time needed to complete: 10 minutes
 
 ## Credit and Collaborations
 
