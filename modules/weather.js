@@ -6,7 +6,7 @@ function weatherHandler(request, response) {
 
     const sQuery = request.query.cityName
 
-    let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${sQuery}&key=${process.env.WEATHER_KEY}&day=7`
+    let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${sQuery}&key=${process.env.WEATHER_KEY}&days=7`
 
     axios
         .get(url)
