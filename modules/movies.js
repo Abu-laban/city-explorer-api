@@ -1,6 +1,7 @@
 'use strict';
 
 const axios = require('axios')
+let cache = require('./cache.js');
 
 function moviesHandler(request, response) {
 
@@ -8,19 +9,24 @@ function moviesHandler(request, response) {
 
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIES_KEY}&query=${sQuery}`
 
-    axios
-        .get(url)
-        .then(moviesData => {
+    if (cache[locationSearch] !== undefined) {
+        response.status(200).send(cache[locationSearch]);
+    } else {
+        axios
+            .get(url)
+            .then(moviesData => {
 
-            response.status(200).send(moviesData.data.results.map(obj => {
-                return new Movies(obj)
-            }))
+                cache[locationSearch] = moviesData.data.results.map(obj => new Movies(obj))
 
-        })
-        .catch(error => {
-            response.status(500).send(error)
-        })
+                response.status(200).send(moviesData.data.results.map(obj => {
+                    return new Movies(obj)
+                }))
 
+            })
+            .catch(error => {
+                response.status(500).send(error)
+            })
+    }
 
 };
 

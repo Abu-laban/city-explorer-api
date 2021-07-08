@@ -54,6 +54,13 @@ axios,
 - Finish time: 1:05 pm
 - Actual time needed to complete: 10 minutes
 
+**Name of feature: Lab 10 YelpAPI , Cash**
+
+- Estimate of time needed to complete: 60 minutes
+- Start time: 11:30 am
+- Finish time: 1:15 pm
+- Actual time needed to complete: 105 minutes
+
 ## Credit and Collaborations
 
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
