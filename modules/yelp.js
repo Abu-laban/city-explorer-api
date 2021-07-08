@@ -17,7 +17,7 @@ function yelpHandler(request, response) {
         axios
             .get(url, {
                 headers: {
-                    Authorization: 'Bearer ' + key //the token is a variable which holds the token
+                    Authorization: `Bearer ${key}` //the token is a variable which holds the token
                 }
             })
             .then(yelpData => {
