@@ -7,7 +7,7 @@ function yelpHandler(request, response) {
 
     const sQuery = request.query.cityName
 
-    let url = `https://api.yelp.com/v3/businesses/search?location=${sQuery}`;
+    let url = `https://api.yelp.com/v3/businesses/search`;
 
     let key = process.env.YELP_KEY;
 
@@ -17,7 +17,11 @@ function yelpHandler(request, response) {
         axios
             .get(url, {
                 headers: {
-                    Authorization: `Bearer ${key}` //the token is a variable which holds the token
+                    Authorization: `Bearer ${key}`
+                },
+                params: {
+                    location: { sQuery },
+
                 }
             })
             .then(yelpData => {
