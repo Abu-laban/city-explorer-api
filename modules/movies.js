@@ -9,14 +9,14 @@ function moviesHandler(request, response) {
 
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIES_KEY}&query=${sQuery}`
 
-    if (cache[locationSearch] !== undefined) {
-        response.status(200).send(cache[locationSearch]);
+    if (cache[sQuery] !== undefined) {
+        response.status(200).send(cache[sQuery]);
     } else {
         axios
             .get(url)
             .then(moviesData => {
 
-                cache[locationSearch] = moviesData.data.results.map(obj => new Movies(obj))
+                cache[sQuery] = moviesData.data.results.map(obj => new Movies(obj))
 
                 response.status(200).send(moviesData.data.results.map(obj => {
                     return new Movies(obj)

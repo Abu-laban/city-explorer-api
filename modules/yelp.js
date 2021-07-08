@@ -9,15 +9,15 @@ function yelpHandler(request, response) {
 
     let yelpURL = `https://api.yelp.com/v3/businesses/search?location=${sQuery}`;
 
-    if (cache[locationSearch] !== undefined) {
-        response.status(200).send(cache[locationSearch]);
+    if (cache[sQuery] !== undefined) {
+        response.status(200).send(cache[sQuery]);
     } else {
         axios
             .get(yelpURL)
             .set({ 'Authorization': 'Bearer ' + process.env.YELP_KEY })
             .then(yelpData => {
 
-                cache[locationSearch] = yelpData.body.businesses.map(yelpObj => new Yelp(yelpObj))
+                cache[sQuery] = yelpData.body.businesses.map(yelpObj => new Yelp(yelpObj))
 
                 response.status(200).send(yelpData.body.businesses.map(yelpObj => {
                     return new Yelp(yelpObj);
