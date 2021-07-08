@@ -11,6 +11,7 @@ server.use(cors());
 const weatherData = require('./data/weather.json')
 const weatherHandler = require('./modules/weather');
 const moviesHandler = require('./modules/movies');
+const yelpHandler = require('./modules/yelp')
 
 const PORT = process.env.PORT;
 
@@ -31,6 +32,7 @@ server.get('/weather', weatherHandler);
 
 server.get('/movies', moviesHandler);
 
+server.get('/yelp', yelpHandler);
 
 
 server.get('*', (request, response) => {
