@@ -15,7 +15,8 @@ function yelpHandler(request, response) {
         response.status(200).send(cache[sQuery]);
     } else {
         axios
-            .get(yelpURL, add_headers(Authorization = `bearer ${YELP_API_KEY}`))
+            .get(yelpURL)
+            .set({ 'Authorization': 'Bearer ' + YELP_API_KEY })
             .then(yelpData => {
 
                 cache[sQuery] = yelpData.data.businesses.map(yelpObj => new Yelp(yelpObj))
