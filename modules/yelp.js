@@ -7,19 +7,19 @@ function yelpHandler(request, response) {
 
     const sQuery = request.query.cityName
 
-    let yelpURL = `https://api.yelp.com/v3/businesses/search?location=${sQuery}`;
+    let url = `https://api.yelp.com/v3/businesses/search?location=${sQuery}`;
 
-    let YELP_API_KEY = process.env.YELP_KEY;
+    let key = process.env.YELP_KEY;
 
-    if (cache[sQuery] !== undefined) {
-        response.status(200).send(cache[sQuery]);
+    if (cache[`y ${sQuery}`] !== undefined) {
+        response.status(200).send(cache[`y ${sQuery}`]);
     } else {
         axios
-            .get(yelpURL)
-            .set({ 'Authorization': 'Bearer ' + YELP_API_KEY })
+            .get(url)
+            .set('Authorization', `Bearer ${key}`)
             .then(yelpData => {
 
-                cache[sQuery] = yelpData.data.businesses.map(yelpObj => new Yelp(yelpObj))
+                cache[`y ${sQuery}`] = yelpData.data.businesses.map(yelpObj => new Yelp(yelpObj))
 
                 response.status(200).send(yelpData.data.businesses.map(yelpObj => {
                     return new Yelp(yelpObj);
