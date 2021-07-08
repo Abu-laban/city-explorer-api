@@ -19,9 +19,9 @@ function yelpHandler(request, response) {
             .set({ 'Authorization': 'Bearer ' + YELP_API_KEY })
             .then(yelpData => {
 
-                cache[sQuery] = yelpData.data.body.businesses.map(yelpObj => new Yelp(yelpObj))
+                cache[sQuery] = yelpData.data.businesses.map(yelpObj => new Yelp(yelpObj))
 
-                response.status(200).send(yelpData.data.body.businesses.map(yelpObj => {
+                response.status(200).send(yelpData.data.businesses.map(yelpObj => {
                     return new Yelp(yelpObj);
                 }))
 
