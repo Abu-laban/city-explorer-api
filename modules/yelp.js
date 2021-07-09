@@ -22,7 +22,7 @@ function yelpHandler(request, response) {
         yelpGQL({
             data: JSON.stringify({
                 query: `{
-              search(
+              search(term: "coffee",
                       location: "${sQuery}",
                       limit: 10) {
                   business {
