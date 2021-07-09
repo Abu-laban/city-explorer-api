@@ -7,28 +7,43 @@ function yelpHandler(request, response) {
 
     const sQuery = request.query.cityName
 
-    let key = process.env.YELP_KEY;
 
     if (cache[`yelp ${sQuery}`] !== undefined) {
         response.status(200).send(cache[`yelp ${sQuery}`]);
     } else {
-        let yelpREST = axios.create({
-            baseURL: "https://api.yelp.com/v3/",
+        let yelpGQL = axios.create({
+            url: "https://api.yelp.com/v3/graphql",
             headers: {
-                Authorization: `Bearer ${key}`,
+                Authorization: `Bearer ${process.env.YELP_KEY}`,
                 "Content-type": "application/json",
             },
+            method: "POST",
         })
-        yelpREST("/businesses/search", {
-            params: {
-                location: sQuery,
-            },
+        yelpGQL({
+            data: JSON.stringify({
+                query: `{
+              search(
+                      location: "${sQuery}",
+                      limit: 10) {
+                  business {
+                      name
+                      image_url
+                      price
+                      rating
+                      url
+                  }
+              }
+          }`,
+            }),
         }).then(({ data }) => {
-            let { businesses } = data
+            let businesses = data.data.search.business
+
             cache[`yelp ${sQuery}`] = businesses.map(yelpObj => new Yelp(yelpObj))
+
             response.status(200).send(businesses.map(yelpObj => {
                 return new Yelp(yelpObj);
             }))
+
         })
             .catch(error => {
                 response.status(500).send(error)
