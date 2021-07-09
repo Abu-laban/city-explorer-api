@@ -23,7 +23,7 @@ function yelpHandler(request, response) {
             data: JSON.stringify({
                 query: `{
               search(term: "coffee",
-                      location: "${sQuery}",
+                      location: "kyoto",
                       limit: 10) {
                   business {
                       name
